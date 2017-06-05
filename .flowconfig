@@ -7,3 +7,4 @@ node_modules
 flow-typed
 
 [options]
+suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore

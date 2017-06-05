@@ -5,11 +5,11 @@
 */
 
 function cleanPlayer(str /*: string */) /*: Player */ {
-  return str.replace(/[^-_a-z0-9]/gi, '').toUpperCase()
+  return `${str}`.replace(/[^-_a-z0-9]/gi, '').toUpperCase();
 }
 
 function cleanRanking(num /*: number */) /*: Ranking */ {
-  return Math.max(0, parseInt(num));
+  return Math.max(0, parseInt(num) || 0);
 }
 
 function makeGame(
