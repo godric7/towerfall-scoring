@@ -1,0 +1,33 @@
+{
+  "name": "towerfall-scoring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "flow": "flow src",
+    "flow:install": "flow-typed install",
+    "lint": "eslint src",
+    "start": "node index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage --collectCoverageFrom=src/**",
+    "test:watch": "jest --watch",
+    "validate": "npm run lint && npm run flow && npm run test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-plugin-flowtype": "^2.34.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "flow-bin": "^0.47.0",
+    "jest": "^20.0.4"
+  }
+}

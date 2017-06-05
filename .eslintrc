@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "env": {
+    "browser": false,
+    "jest/globals": true,
+    "node": true,
+  },
+  "extends": [
+    "plugin:jest/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "jest",
+    "flowtype"
+  ]
+}

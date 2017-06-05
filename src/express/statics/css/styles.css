@@ -1,0 +1,129 @@
+@font-face {
+  font-family: Archer;
+  src: url('../font/Archer.ttf');
+}
+
+html, body {
+  height: 100%;
+  margin: 0; padding: 0;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  font-smooth: never;
+  -webkit-font-smoothing : none;
+}
+
+body {
+  font-family: "Archer", "Arial";
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 24px;
+}
+
+#main-wrapper {
+  background: #f0f;
+  display: flex;
+  min-height: 100%;
+}
+
+#contents {
+  flex: 0 1 1024px;
+  background: #000;
+  background-position: top center;
+  background-image: url('../img/map-full.png');
+  background-size: cover;
+}
+
+#padding-left,
+#padding-right {
+  flex: 1 1 auto;
+  background-repeat: no-repeat;
+  background-color: #140614;
+  background-size: auto 100%;
+}
+
+#padding-left {
+  background-image: url('../img/bg-left.png');
+  background-position: top right;
+}
+#padding-right {
+  background-image: url('../img/bg-right.png');
+  background-position: top left;
+}
+
+.card {
+  margin: 40px;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.8);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(0,0,0,0.5);
+}
+
+a {
+  display: inline-block;
+  margin: 5px 20px;
+  color: #fff;
+}
+
+input, button {
+  line-height: 1em;
+  text-transform: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: inherit;
+  display: inline;
+  border: none;
+  background: transparent;
+}
+
+input[type=submit], button {
+  background-color: transparent;
+  background-image: url('../img/banner.png');
+  background-size: 100% 100%;
+  padding: 20px 40px;
+}
+
+.playerName { font-size: 2em; }
+.textBig { font-size: 1.5em; }
+.textHuge { font-size: 3em; }
+.textLeft { text-align: left; }
+.textCenter { text-align: center; }
+.textRight { text-align: right; }
+.textJustify { text-align: justify; }
+.alignBottom { vertical-align: bottom; }
+
+
+/* Zoom Zoom */
+
+@-webkit-keyframes zoomIn {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@-webkit-keyframes zoomOut {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+input:focus, button:focus, button:hover, input:hover, a:hover, a:focus {
+  outline: none;
+  animation: zoomIn ease-in-out 200ms;
+}
+
+input[type=submit]:active, button:active, a:active, a:active {
+  animation: zoomOut ease-in-out 200ms;
+}
+
+
