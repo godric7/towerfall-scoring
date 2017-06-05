@@ -22,6 +22,7 @@ function makeGame(
     rankings[cleanPlayer(rawPlayer)] =
       cleanRanking(rawRankings[rawPlayer]);
   });
+  rankings[''] && delete(rankings['']);
   return { rankings, date };
 }
 
