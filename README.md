@@ -10,7 +10,7 @@ npm run start
 
 ### Docker
 ```
-docker-compose start
+docker-compose up -d
 ```
 
 ### Environement Variables:
