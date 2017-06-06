@@ -1,4 +1,4 @@
-<form method="POST">
+<form method="POST" autocomplete="off" >
   <table class="textCenter textBig">
     {{#each inputs}}
     <tr>
@@ -6,12 +6,21 @@
         <input type="number" name="inputs[{{@index}}][ranking]" value="{{ranking}}" min="1" max="4" />
       </td>
       <td>
-        <input type="textfield" name="inputs[{{@index}}][player]" placeholder="Player Name" value="{{player}}" />
+        <input type="textfield" name="inputs[{{@index}}][player]" placeholder="PLAYER NAME" value="{{player}}" />
       </td>
     </tr>
     {{/each}}
+    <tr>
+      <td>
+      </td>
+      <td>
+        <input type="password" name="password" placeholder="PASSWORD" autocomplete="new-password" />
+      </td>
+    </tr>
+
   </table>
   <br/>
+
   <div class="textCenter">
     <button type="submit">
       SAVE

@@ -26,5 +26,6 @@ const onRead = (callback /* (string|null) => void */) => {
 const store = createStore(writeFunc, {});
 store.dispatch(replayLogsThunk(onRead));
 
+app.set('config', config);
 app.set('store', store);
 app.listen(3000);

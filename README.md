@@ -17,3 +17,4 @@ docker-compose up -d
  - `HOST`: Address to bind server to.
  - `PORT`: Port to bind server to.
  - `LOGFILE`: Path to the games log.
+ - `PASSWORD`: Password for adding games.

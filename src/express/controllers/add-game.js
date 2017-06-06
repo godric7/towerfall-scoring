@@ -11,16 +11,19 @@ export type GameInput = {| player: string, ranking: number |}
 */
 
 const addGameCtrl = (req /*: Request */, res /*: Response */) => {
+  const config = req.app.get('config');
   const store = req.app.get('store');
   const state /*: State */ = store.getState();
 
   let inputs = [1,2,3,4]
     .map((i) => ({ player: '', ranking: i }));
 
-  if (req.body && req.body.inputs && Array.isArray(req.body.inputs)) {
+  if (req.body && Array.isArray(req.body.inputs))
     inputs = req.body.inputs;
+
+  if (req.body && req.body.password == config.PASSWORD) {
     const rankings = {};
-    req.body.inputs.forEach((input) => {
+    inputs.forEach((input) => {
       rankings[input.player] = input.ranking;
     });
     const game = makeGame(rankings);
