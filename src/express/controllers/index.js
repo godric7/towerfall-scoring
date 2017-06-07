@@ -15,7 +15,11 @@ const indexCtrl = (req /*: Request */, res /*: Response */) => {
   const scores = players
     .map((player) => ({ player, rating: ratings[player] }))
     .sort((a, b) => b.rating - a.rating)
-    .map((a) => Object.assign(a, { rating: Math.round(a.rating / 100) }));
+    .map((a, index) => ({
+      player: a.player,
+      index: index + 1,
+      rating: Math.round(a.rating / 100),
+    }));
   res.render('index.hbs', { scores });
 };
 
