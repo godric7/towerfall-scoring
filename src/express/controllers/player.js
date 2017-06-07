@@ -44,6 +44,7 @@ const playerCtrl = (req /*: Request */, res /*: Response */) => {
     });
     return acc;
   }, {});
+  const total = encounters[player].ties;
   delete(encounters[player]);
 
   const victories = Object.keys(encounters)
@@ -64,7 +65,7 @@ const playerCtrl = (req /*: Request */, res /*: Response */) => {
   const hours = Object.keys(encounters)
     .map((opponent) => ({ opponent, count: encounters[opponent].hours }))
     .sort((a , b) => b.count - a.count);
-  res.render('player.hbs', { player, rating, victories, defeats, ties, win_streaks, loss_streaks, hours });
+  res.render('player.hbs', { player, rating, total, victories, defeats, ties, win_streaks, loss_streaks, hours });
 };
 
 module.exports = {
