@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const { indexCtrl } = require('./controllers/index.js');
 const { addGameCtrl } = require('./controllers/add-game.js');
 const { logsCtrl } = require('./controllers/logs.js');
+const { playerCtrl } = require('./controllers/player.js');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(express.static(paths.statics));
 app.all('/', indexCtrl);
 app.all('/add', addGameCtrl);
 app.all('/logs', logsCtrl);
+app.all('/players/:player', playerCtrl);
 
 module.exports = {
   app,

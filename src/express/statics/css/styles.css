@@ -68,9 +68,14 @@ table tr:nth-child(even) {
 }
 
 a {
-  display: inline-block;
-  margin: 5px 20px;
   color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.menu a {
+  margin: 5px 20px;
+  text-decoration: underline;
 }
 
 input, button {
