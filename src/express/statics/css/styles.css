@@ -21,36 +21,54 @@ body {
   font-size: 24px;
 }
 
+#main-background {
+  position: fixed;
+  display: flex;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#main-background .contents {
+  background-position: top center;
+  background-image: url('../img/map-full.png');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#main-background .padding-left,
+#main-background .padding-right {
+  background-repeat: no-repeat;
+  background-color: #140614;
+  background-size: auto 100vh;
+  background-attachment: local;
+}
+
+#main-background .padding-left {
+  background-image: url('../img/bg-left.png');
+  background-position: top right;
+}
+#main-background .padding-right {
+  background-image: url('../img/bg-right.png');
+  background-position: top left;
+}
+
+
 #main-wrapper {
-  background: #f0f;
   display: flex;
   min-height: 100%;
 }
 
-#contents {
+.contents {
   flex: 0 1 1024px;
-  background: #000;
-  background-position: top center;
-  background-image: url('../img/map-full.png');
-  background-size: cover;
 }
 
-#padding-left,
-#padding-right {
+.padding-left,
+.padding-right {
   flex: 1 1 auto;
-  background-repeat: no-repeat;
-  background-color: #140614;
-  background-size: auto 100%;
 }
 
-#padding-left {
-  background-image: url('../img/bg-left.png');
-  background-position: top right;
-}
-#padding-right {
-  background-image: url('../img/bg-right.png');
-  background-position: top left;
-}
 
 .card {
   margin: 40px;
