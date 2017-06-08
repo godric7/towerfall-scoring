@@ -18,7 +18,8 @@ const addGameCtrl = (req /*: Request */, res /*: Response */) => {
 
   let inputs /*: Array<GameInput> */ = [1,2,3,4]
     .map((i) => ({ player: '', ranking: i }));
-
+  const players = Object.keys(state.ratings)
+    .map(player => ({ player }));
   if (req.body && Array.isArray(req.body.inputs))
     inputs = req.body.inputs;
 
@@ -33,7 +34,7 @@ const addGameCtrl = (req /*: Request */, res /*: Response */) => {
       return res.redirect('/');
     }
   }
-  res.render('add-game.hbs', { inputs });
+  res.render('add-game.hbs', { inputs, players });
 };
 
 module.exports = {

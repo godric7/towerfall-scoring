@@ -6,7 +6,17 @@
         <input type="number" name="inputs[{{@index}}][ranking]" value="{{ranking}}" min="1" max="4" tabindex="-1" />
       </td>
       <td>
-        <input type="textfield" name="inputs[{{@index}}][player]" placeholder="PLAYER NAME" value="{{player}}" />
+        <input
+          name="inputs[{{@index}}][player]"
+          placeholder="PLAYER NAME"
+          value="{{player}}"
+          list="playerList"
+        />
+        <datalist id="playerList">
+          {{#each ../players}}
+          <option value="{{player}}" />
+          {{/each}}
+        </datalist>
       </td>
     </tr>
     {{/each}}
