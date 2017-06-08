@@ -1,8 +1,12 @@
 <form method="POST" autocomplete="off" >
-  <table class="textCenter textBig">
+  <table
+    class="textCenter textBig"
+    style="width: 80%; margin: auto;"
+  >
     {{#each inputs}}
     <tr>
-      <td>
+      <td
+      >
         <input
           type="number"
           name="inputs[{{@index}}][ranking]"
@@ -10,15 +14,17 @@
           min="1"
           max="4"
           tabindex="-1"
-          style="width: 100%"
+          style="width: 100%; border-bottom: 2px solid #757575; padding: 16px 0 0px"
         />
       </td>
-      <td>
+      <td
+      >
         <input
           name="inputs[{{@index}}][player]"
           placeholder="PLAYER NAME"
           value="{{player}}"
           list="playerList"
+          style="border-bottom: 2px solid #757575; padding: 16px 0 0px"
         />
         <datalist id="playerList">
           {{#each ../players}}
@@ -31,11 +37,17 @@
     <tr>
       <td>
       </td>
-      <td>
-        <input type="password" name="password" placeholder="PASSWORD" autocomplete="new-password" />
+      <td
+        style="padding: 32px 0px"
+      >
+        <input
+          type="password"
+          name="password"
+          placeholder="PASSWORD"
+          autocomplete="new-password"
+        />
       </td>
     </tr>
-
   </table>
   <br/>
 
