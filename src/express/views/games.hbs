@@ -1,12 +1,12 @@
-<table class="textCenter">
+<table>
   <tr>
     <td colspan="4"></td>
   </tr>
 {{#each games}}
   <tr>
-    <td>{{date}}</td>
+    <td class="textLeft">{{date}}</td>
     {{# each rankings }}
-    <td>{{rank}}: <a href="/players/{{player}}">{{player}}</a></td>
+    <td class="textLeft">{{rank}}: <a href="/players/{{player}}">{{player}}</a></td>
     {{/each}}
   </tr>
 {{/each}}
