@@ -19,8 +19,8 @@ describe('player-test.js', () => {
       const results = playerSerializer('p1', mockGames, '1990-01-04');
       expect(results).toEqual({
         defeats: [
+          { count: 1, opponent: 'p4', ratio: '1.0' },
           { count: 1, opponent: 'p2', ratio: '0.5' },
-          { count: 1, opponent: 'p4', ratio: '0.5' },
           { count: 0, opponent: 'p3', ratio: '0.0' },
         ],
         hours: [
@@ -40,8 +40,8 @@ describe('player-test.js', () => {
         ],
         total: 2,
         victories: [
+          { count: 1, opponent: 'p3', ratio: '1.0' },
           { count: 1, opponent: 'p2', ratio: '0.5' },
-          { count: 1, opponent: 'p3', ratio: '0.5' },
           { count: 0, opponent: 'p4', ratio: '0.0' },
         ],
         win_streaks: [

@@ -18,7 +18,7 @@ body {
   font-family: "Archer", "Arial";
   text-transform: uppercase;
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 #main-background {
@@ -97,28 +97,34 @@ a {
 }
 
 input, button {
-  line-height: 1em;
+  font-size: 1.5em;
   text-transform: inherit;
   font-family: inherit;
-  font-size: 1em;
-  padding-top: 0;
-  padding-bottom: 0;
+  /*font-size: 1em;*/
+  padding: 0.5em 0;
   color: inherit;
-  display: inline;
+  display: inline-block;
+  width: 90%;
   border: none;
   background: transparent;
+  text-align: center;
+  border-bottom: 2px solid #757575;
 }
 
-input[type=submit], button {
+input[type=submit], button[type=submit] {
   background-color: transparent;
   background-image: url('../img/banner.png');
-  background-size: 100% 100%;
-  padding: 20px 40px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 25px 40px;
+  border: none;
 }
 
 .playerName { font-size: 2em; }
 .textBig { font-size: 1.5em; }
 .textHuge { font-size: 3em; }
+.textSmall { font-size: 0.8em; }
 .textLeft { text-align: left; }
 .textCenter { text-align: center; }
 .textRight { text-align: right; }

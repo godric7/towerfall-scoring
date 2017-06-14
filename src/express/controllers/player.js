@@ -19,7 +19,7 @@ function playerSerializer(
       const last_date = game.date;
       Object.keys(game.rankings).forEach((opponent) => {
         acc[opponent] = acc[opponent] || {
-          opponent, victories: 0, defeats: 0, ties: 0, hours: 0, win_streaks: 0, loss_streaks: 0,
+          opponent, victories: 0, defeats: 0, ties: 0, hours: 0, win_streaks: 0, loss_streaks: 0, total: 0,
         };
         if (game.rankings[opponent] > game.rankings[player]) {
           acc[opponent].victories += 1;
@@ -38,32 +38,33 @@ function playerSerializer(
         }
         const last = new Date(game.date).getTime();
         acc[opponent].hours = Math.round((last - time) / (1000 * 60 * 60));
+        acc[opponent].total += 1;
       });
       return acc;
     }, {});
 
-  const total = encounters[player].ties;
+  const total = encounters[player].total;
   delete(encounters[player]);
 
   const victories = Object.keys(encounters)
     .map((opponent) => ({
       opponent: opponent,
       count: encounters[opponent].victories,
-      ratio: (encounters[opponent].victories / total).toFixed(1),
+      ratio: (encounters[opponent].victories / encounters[opponent].total).toFixed(1),
     }))
     .sort((a , b) => parseFloat(b.ratio) - parseFloat(a.ratio));
   const defeats = Object.keys(encounters)
     .map((opponent) => ({
       opponent: opponent,
       count: encounters[opponent].defeats,
-      ratio: (encounters[opponent].defeats / total).toFixed(1),
+      ratio: (encounters[opponent].defeats / encounters[opponent].total).toFixed(1),
     }))
     .sort((a , b) => parseFloat(b.ratio) - parseFloat(a.ratio));
   const ties = Object.keys(encounters)
     .map((opponent) => ({
       opponent: opponent,
       count: encounters[opponent].ties,
-      ratio: (encounters[opponent].ties / total).toFixed(1),
+      ratio: (encounters[opponent].ties / encounters[opponent].total).toFixed(1),
     }))
     .sort((a , b) => parseFloat(b.ratio) - parseFloat(a.ratio));
   const win_streaks = Object.keys(encounters)

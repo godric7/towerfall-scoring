@@ -18,7 +18,8 @@
       {{#each victories }}
         <tr>
           <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ count }}</span></td>
+          <td><span>{{ ratio }}</span></td>
+          <td><span class="textSmall">{{ count }}</span></td>
         </tr>
       {{/each}}
       </table>
@@ -28,7 +29,8 @@
       {{#each ties }}
         <tr>
           <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ count }}</span></td>
+          <td><span>{{ ratio }}</span></td>
+          <td><span class="textSmall">{{ count }}</span></td>
         </tr>
       {{/each}}
       </table>
@@ -38,7 +40,8 @@
       {{#each defeats }}
         <tr>
           <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ count }}</span></td>
+          <td><span>{{ ratio }}</span></td>
+          <td><span class="textSmall">{{ count }}</span></td>
         </tr>
       {{/each}}
       </table>
