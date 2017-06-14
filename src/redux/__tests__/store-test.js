@@ -45,7 +45,7 @@ describe('redux', () => {
       expect(state2.games)
         .toEqual([game1, game2]);
       expect(state2.ratings)
-        .toEqual({ P1: 10500, P2: 9500 });
+        .toEqual({ P1: 10600, P2: 9400 });
     });
   });
 });
