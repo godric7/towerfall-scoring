@@ -12,7 +12,7 @@ const config = require('./config.js');
 
 const writeFunc = (line /*: string */) => {
   process.stdout.write(line);
-  fs.writeFileSync(config.LOGFILE, line, { flags: 'a' });
+  fs.appendFileSync(config.LOGFILE, `${line}\n`);
 }
 
 const istream = fs.createReadStream(config.LOGFILE, { flags: 'a+' });
