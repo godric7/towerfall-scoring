@@ -1,6 +1,6 @@
 // @flow
 
-const { makeGame, registerGame } = require('../../redux/actions.js');
+const { registerGame } = require('../../redux/actions.js');
 
 /*flow-include
 import type { Request, Response } from 'express';

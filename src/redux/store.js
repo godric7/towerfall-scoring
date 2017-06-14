@@ -16,17 +16,9 @@ const {
 const thunk = require('redux-thunk').default;
 
 /*flow-include
-  import type { ELORating, ELOResult } from '../lib/elo.js';
+  import type { ELORating } from '../lib/elo.js';
   import type { Dispatch, GetState, Store as ReduxStore, Next } from 'redux';
-
-  export type Player = string;
-  export type Ranking = number;
-  export type Rating = number;
-
-  export type Game = {|
-    rankings: { [Player]: Ranking },
-    date: string,
-  |}
+  import type { Game, Player, Ranking, Rating } from '../types';
 
   export type State = {|
     games: Array<Game>,

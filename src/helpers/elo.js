@@ -8,7 +8,7 @@ const {
 
 /*flow-include
   import type { ELORating, ELOResult } from '../lib/elo.js';
-  import type { Player, Ranking } from '../redux/store.js';
+  import type { Player, Ranking } from '../types';
 */
 
 function getUpdatedRatingFromRankings(

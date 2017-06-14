@@ -1,10 +1,11 @@
 // @flow
 
-const { makeGame, registerGame } = require('../../redux/actions.js');
+const { registerGame } = require('../../redux/actions.js');
+const { makeGameFromRankings } = require('../../types');
 
 /*flow-include
 import type { Request, Response } from 'express';
-import type { State, Player } from '../../redux/store.js';
+import type { State } from '../../redux/store.js';
 import type { ELORating } from '../../lib/elo.js'
 import type { Config } from '../../../config.js';
 
@@ -28,7 +29,7 @@ const addGameCtrl = (req /*: Request */, res /*: Response */) => {
     inputs.forEach((input) => {
       rankings[input.player] = input.ranking;
     });
-    const game = makeGame(rankings);
+    const game = makeGameFromRankings(rankings);
     if (Object.keys(game.rankings).length >= 2) {
       store.dispatch(registerGame(game));
       return res.redirect('/');

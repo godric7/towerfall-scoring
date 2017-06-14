@@ -2,8 +2,7 @@
 
 /*flow-include
 import type { Request, Response } from 'express';
-import type { State, Player } from '../../redux/store.js';
-import type { ELORating } from '../../lib/elo.js'
+import type { State } from '../../redux/store.js';
 */
 
 const indexCtrl = (req /*: Request */, res /*: Response */) => {
