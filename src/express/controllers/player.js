@@ -13,7 +13,7 @@ function playerSerializer(
 ) {
   const time = (new Date(now)).getTime();
   const encounters = games
-    .sort((a, b) => (b.date < b.date ? -1 : (b.date > b.date ? 1 : 0)))
+    .sort((a, b) => (b.date < a.date ? 1 : (b.date > a.date ? -1 : 0)))
     .filter((game) => Object.keys(game.rankings).includes(player))
     .reduce((acc, game) => {
       const last_date = game.date;

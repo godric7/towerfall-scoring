@@ -12,9 +12,9 @@ describe('player-test.js', () => {
   describe('playerSerializer()', () => {
     it('return expected results', () => {
       const mockGames = [
-        mockGame({ rankings: { p1: 1, p2: 2, p3: 3 }, date: '1990-01-01' }),
         mockGame({ rankings: { p2: 1, p3: 2, p4: 3 }, date: '1990-01-02' }),
         mockGame({ rankings: { p4: 1, p2: 2, p1: 3 }, date: '1990-01-03' }),
+        mockGame({ rankings: { p1: 1, p2: 2, p3: 3 }, date: '1990-01-01' }),
       ];
       const results = playerSerializer('p1', mockGames, '1990-01-04');
       expect(results).toEqual({
