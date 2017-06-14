@@ -16,8 +16,20 @@ describe('player-test.js', () => {
         mockGame({ rankings: { p4: 1, p2: 2, p1: 3 }, date: '1990-01-03' }),
         mockGame({ rankings: { p1: 1, p2: 2, p3: 3 }, date: '1990-01-01' }),
       ];
-      const results = playerSerializer('p1', mockGames, '1990-01-04');
+      const mockRatings = {
+        p1: 500,
+        p2: 200,
+        p3: 400,
+        p4: 100,
+      }
+      const results = playerSerializer('p1', mockGames, mockRatings, '1990-01-04');
       expect(results).toEqual({
+        rating: 5,
+        results: [
+          { value: '0.5', opponent: 'p2' },
+          { value: '0.5', opponent: 'p3' },
+          { value: '0.5', opponent: 'p4' },
+        ],
         defeats: [
           { count: 1, opponent: 'p4', ratio: '1.0' },
           { count: 1, opponent: 'p2', ratio: '0.5' },
@@ -32,11 +44,6 @@ describe('player-test.js', () => {
           { count: 1, opponent: 'p2' },
           { count: 1, opponent: 'p4' },
           { count: 0, opponent: 'p3' },
-        ],
-        ties: [
-          { count: 0, opponent: 'p2', ratio: '0.0' },
-          { count: 0, opponent: 'p3', ratio: '0.0' },
-          { count: 0, opponent: 'p4', ratio: '0.0' },
         ],
         total: 2,
         victories: [

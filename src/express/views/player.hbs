@@ -9,7 +9,7 @@
 <table class="textCenter textBig">
   <tr>
     <td class="textBig">Victories</td>
-    <td class="textBig">Ties</td>
+    <td class="textBig">ELO Results</td>
     <td class="textBig">Defeats</td>
   </tr>
   <tr>
@@ -26,11 +26,10 @@
     </td>
     <td>
       <table class="">
-      {{#each ties }}
+      {{#each results }}
         <tr>
           <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ ratio }}</span></td>
-          <td><span class="textSmall">{{ count }}</span></td>
+          <td><span>{{ value }}</span></td>
         </tr>
       {{/each}}
       </table>
