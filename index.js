@@ -4,16 +4,15 @@ const fs = require('fs');
 const readline = require('readline');
 
 const { createStore } = require('./src/redux/store.js');
-const { makeGame, registerGame } = require('./src/redux/actions.js');
+const { registerGame } = require('./src/redux/actions.js');
 const { replayLogsThunk } = require('./src/lib/redux-replay.js');
 const { app } = require('./src/express');
 
 const config = require('./config.js');
 
-const ostream = fs.createWriteStream(config.LOGFILE, { flags: 'a' });
 const writeFunc = (line /*: string */) => {
-  console.log(line);
-  ostream.write(`${line}\n`);
+  process.stdout.write(line);
+  fs.writeFileSync(config.LOGFILE, line, { flags: 'a' });
 }
 
 const istream = fs.createReadStream(config.LOGFILE, { flags: 'a+' });
