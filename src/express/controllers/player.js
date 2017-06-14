@@ -60,40 +60,6 @@ function playerSerializer(
     });
   }).sort((a, b) => parseFloat(b.ratio) - parseFloat(a.ratio));
 
-
-  // const ELOResults = Object.keys(encounters)
-  //   .map((opponent) => ({
-  //     opponent: opponent,
-  //     value: (getResultFromRating(ratings[player], ratings[opponent]) / 100).toFixed(1),
-  //   }))
-  //   .sort((a, b) => parseFloat(b.value) - parseFloat(a.value));
-
-  // const gameResults = Object.keys(encounters)
-  //   .map((opponent) => ({
-  //     opponent: opponent,
-  //     victories: encounters[opponent].victories,
-  //     ratio: (encounters[opponent].victories / encounters[opponent].total).toFixed(1),
-  //     defeats: encounters[opponent].defeats,
-  //   }))
-  //   .sort((a, b) => parseFloat(b.ratio) - parseFloat(a.ratio));
-  // const winStreak = Object.keys(encounters)
-  //   .map((opponent) => ({
-  //     opponent: opponent,
-  //     count: encounters[opponent].winStreak,
-  //   }))
-  //   .sort((a, b) => b.count - a.count);
-  // const lossStreak = Object.keys(encounters)
-  //   .map((opponent) => ({
-  //     opponent: opponent,
-  //     count: encounters[opponent].lossStreak,
-  //   }))
-  //   .sort((a, b) => b.count - a.count);
-  // const hours = Object.keys(encounters)
-  //   .map((opponent) => ({
-  //     opponent,
-  //     count: encounters[opponent].hours
-  //   }))
-  //   .sort((a, b) => b.count - a.count);
   return {total, rating, results};
 }
 
@@ -114,7 +80,7 @@ function playerCtrl (
   } = playerSerializer(player,  state.games, state.ratings);
 
   res.render('player.hbs', {
-    player, total, results,
+    player, total, rating, results,
   });
 };
 
