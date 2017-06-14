@@ -14,7 +14,7 @@ const {
 function getUpdatedRatingFromRankings(
   prevRatings /*: { [Player]: ELORating } */,
   rankings /*: { [Player]: Ranking } */,
-  k /*: number */ = 10
+  k /*: number */ = 12
 ) /*: { [Player]: ELORating } */ {
   const players = Object.keys(rankings);
   if (players.length < 2)
