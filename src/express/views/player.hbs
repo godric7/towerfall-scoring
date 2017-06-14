@@ -8,82 +8,31 @@
 
 <table class="textCenter textBig">
   <tr>
-    <td class="textBig">Victories</td>
-    <td class="textBig">ELO Results</td>
-    <td class="textBig">Defeats</td>
+    <td></a></td>
+    <td><span>RATIO</span></td>
+    <td><span>ELO</span></td>
+    <td><span>WON</span></td>
+    <td><span>LOST</span></td>
+    <td><span>LAST</span></td>
   </tr>
+{{#each results }}
   <tr>
+    <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
     <td>
-      <table class="">
-      {{#each victories }}
-        <tr>
-          <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ ratio }}</span></td>
-          <td><span class="textSmall">{{ count }}</span></td>
-        </tr>
-      {{/each}}
-      </table>
+      <span>{{ ratio }}</span>
+      <span class="textSmall">({{ total }})</span>
+    </td>
+    <td><span>{{ elo }}</span></td>
+    <td>
+      <span>{{ victories }}</span>
+      <span class="textSmall">+{{ winStreak }}</span>
     </td>
     <td>
-      <table class="">
-      {{#each results }}
-        <tr>
-          <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ value }}</span></td>
-        </tr>
-      {{/each}}
-      </table>
+      <span>{{ defeats }}</span>
+      <span class="textSmall">-{{ lossStreak }}</span>
     </td>
-    <td>
-      <table class="">
-      {{#each defeats }}
-        <tr>
-          <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ ratio }}</span></td>
-          <td><span class="textSmall">{{ count }}</span></td>
-        </tr>
-      {{/each}}
-      </table>
-    </td>
+    <td><span class="textSmall">{{ hours }}H</span></td>
   </tr>
-  <tr>
-    <td colspan="3">&nbsp;</td>
-  </tr>
-  <tr>
-    <td class="textBig">+ Streaks</td>
-    <td class="textBig">Last</td>
-    <td class="textBig">- Streaks</td>
-  </tr>
-  <tr>
-    <td>
-      <table class="">
-      {{#each win_streaks }}
-        <tr>
-          <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ count }}</span></td>
-        </tr>
-      {{/each}}
-      </table>
-    </td>
-    <td>
-      <table class="">
-      {{#each hours }}
-        <tr>
-          <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ count }}h</span></td>
-        </tr>
-      {{/each}}
-      </table>
-    </td>
-    <td>
-      <table class="">
-      {{#each loss_streaks }}
-        <tr>
-          <td><a href="/players/{{opponent}}">{{ opponent }}</a></td>
-          <td><span>{{ count }}</span></td>
-        </tr>
-      {{/each}}
-      </table>
-    </td>
-  </tr>
+{{/each}}
+</table>
 </table>

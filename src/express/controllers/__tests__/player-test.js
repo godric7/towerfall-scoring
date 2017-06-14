@@ -17,45 +17,17 @@ describe('player-test.js', () => {
         mockGame({ rankings: { p1: 1, p2: 2, p3: 3 }, date: '1990-01-01' }),
       ];
       const mockRatings = {
-        p1: 500,
-        p2: 200,
-        p3: 400,
-        p4: 100,
+        p1: 500, p2: 200, p3: 400, p4: 100,
       }
       const results = playerSerializer('p1', mockGames, mockRatings, '1990-01-04');
       expect(results).toEqual({
         rating: 5,
         results: [
-          { value: '0.5', opponent: 'p2' },
-          { value: '0.5', opponent: 'p3' },
-          { value: '0.5', opponent: 'p4' },
-        ],
-        defeats: [
-          { count: 1, opponent: 'p4', ratio: '1.0' },
-          { count: 1, opponent: 'p2', ratio: '0.5' },
-          { count: 0, opponent: 'p3', ratio: '0.0' },
-        ],
-        hours: [
-          { count: -24, opponent: 'p2' },
-          { count: -24, opponent: 'p4' },
-          { count: -72, opponent: 'p3' },
-        ],
-        loss_streaks: [
-          { count: 1, opponent: 'p2' },
-          { count: 1, opponent: 'p4' },
-          { count: 0, opponent: 'p3' },
+          { elo: '0.5', ratio: '1.0', opponent: 'p3', victories: 1, defeats: 0, hours: -72, lossStreak: 0, winStreak: 1, total: 1 },
+          { elo: '0.5', ratio: '0.5', opponent: 'p2', victories: 1, defeats: 1, hours: -24, lossStreak: 1, winStreak: 0, total: 2 },
+          { elo: '0.5', ratio: '0.0', opponent: 'p4', victories: 0, defeats: 1, hours: -24, lossStreak: 1, winStreak: 0, total: 1 },
         ],
         total: 2,
-        victories: [
-          { count: 1, opponent: 'p3', ratio: '1.0' },
-          { count: 1, opponent: 'p2', ratio: '0.5' },
-          { count: 0, opponent: 'p4', ratio: '0.0' },
-        ],
-        win_streaks: [
-          { count: 1, opponent: 'p3' },
-          { count: 0, opponent: 'p2' },
-          { count: 0, opponent: 'p4' },
-        ],
       });
     });
   });
