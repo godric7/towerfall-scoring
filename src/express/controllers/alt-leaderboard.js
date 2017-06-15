@@ -5,6 +5,7 @@ import type { Request, Response } from 'express';
 import type { State } from '../../redux/store.js';
 */
 
+
 const altLeaderBoardCtrl = (req /*: Request */, res /*: Response */) => {
   const store = req.app.get('store');
   const state /*: State */ = store.getState();
@@ -33,7 +34,7 @@ const altLeaderBoardCtrl = (req /*: Request */, res /*: Response */) => {
   res.render('index.hbs', { scores });
 };
 
-const reduceCount = (mergeObject /*: Object */, key /*: String */) => {
+const reduceCount = (mergeObject /*: Object */, key /*: ?string */) => {
   const oldValue = mergeObject[key];
 
   if (oldValue == undefined) {
