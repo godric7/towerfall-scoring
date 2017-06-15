@@ -5,6 +5,7 @@ const expressHandlerbars  = require('express-handlebars');
 const bodyParser = require('body-parser');
 
 const { indexCtrl } = require('./controllers/index.js');
+const { altLeaderBoardCtrl } = require('./controllers/alt-leaderboard.js');
 const { addGameCtrl } = require('./controllers/add-game.js');
 const { logsCtrl } = require('./controllers/logs.js');
 const { playerCtrl } = require('./controllers/player.js');
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(paths.statics));
 
 app.all('/', indexCtrl);
+app.all('/altboard', altLeaderBoardCtrl);
 app.all('/add', addGameCtrl);
 app.all('/logs', logsCtrl);
 app.all('/games', gamesCtrl);
