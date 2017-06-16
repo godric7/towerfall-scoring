@@ -1,6 +1,7 @@
 // @flow
 
 const {
+  computeRatingsFromRankings,
   getUpdatedRatingFromRankings,
 } = require('../elo.js');
 
@@ -41,5 +42,26 @@ describe('ELO', () => {
         { p1: 10427, p2: 20240, p3: 19573, p4: 9760 }
       );
     })
+  });
+
+  describe('computeRatingsFromRankings()', () => {
+    it('should compute player ratings from one ranking', () => {
+      const rankings = [{ p1: 1, p2: 2, p3: 3, p4: 4 }];
+      const ratings = computeRatingsFromRankings(rankings, 10);
+      expect(ratings).toEqual(
+        { p1: 10501, p2: 10167, p3: 9833, p4: 9499 }
+      );
+    });
+
+    it('should compute player ratings from two rankings', () => {
+      const rankings = [
+        { p1: 1, p2: 2, p3: 3, p4: 4 },
+        { p1: 1, p2: 2, p3: 3, p4: 4 }
+      ];
+      const ratings = computeRatingsFromRankings(rankings, 10);
+      expect(ratings).toEqual(
+        { p1: 10994, p2: 10330, p3: 9670, p4: 9006 }
+      );
+    });
   });
 })

@@ -6,7 +6,7 @@
   export type Rating = number;
 
   export type Game = {|
-    +rankings: {| [Player]: Ranking |},
+    +rankings: { [Player]: Ranking },
     +date: string,
   |};
 */

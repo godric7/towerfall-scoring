@@ -40,6 +40,16 @@ function getUpdatedRatingFromRankings(
   return Object.assign({}, prevRatings, newRatings);
 }
 
+function computeRatingsFromRankings(
+  rankings /*: Array<{ [Player]: Ranking }> */,
+  k /*: number */ = 12,
+) {
+  return rankings.reduce((ratings, ranking) => {
+    return getUpdatedRatingFromRankings(ratings, ranking, k);
+  }, {});
+}
+
 module.exports = {
+  computeRatingsFromRankings,
   getUpdatedRatingFromRankings,
 };
