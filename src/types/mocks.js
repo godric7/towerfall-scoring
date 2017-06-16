@@ -6,7 +6,7 @@
 */
 
 const defaultGame /*: Game */ = {
-  rankings: { p1: 1, p2: 2, p3: 3, p4: 4 },
+  rankings: ({ 'p1': 1, 'p2': 2, 'p3': 3, 'p4': 4 } /*: any */),
   date: 'gameDate',
 };
 
