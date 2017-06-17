@@ -4,12 +4,14 @@ const express = require('express');
 const expressHandlerbars  = require('express-handlebars');
 const bodyParser = require('body-parser');
 
-const { indexCtrl } = require('./controllers/index.js');
-const { altLeaderBoardCtrl } = require('./controllers/alt-leaderboard.js');
 const { addGameCtrl } = require('./controllers/add-game.js');
+const { altLeaderBoardCtrl } = require('./controllers/alt-leaderboard.js');
+const { gamesCtrl } = require('./controllers/games.js');
+const { indexCtrl } = require('./controllers/index.js');
 const { logsCtrl } = require('./controllers/logs.js');
 const { playerCtrl } = require('./controllers/player.js');
-const { gamesCtrl } = require('./controllers/games.js');
+const { weeklyCtrl } = require('./controllers/weekly.js');
+
 
 const app = express();
 
@@ -32,11 +34,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(paths.statics));
 
 app.all('/', indexCtrl);
-app.all('/altboard', altLeaderBoardCtrl);
 app.all('/add', addGameCtrl);
+app.all('/altboard', altLeaderBoardCtrl);
 app.all('/logs', logsCtrl);
 app.all('/games', gamesCtrl);
 app.all('/players/:player', playerCtrl);
+app.all('/weekly', weeklyCtrl);
 
 module.exports = {
   app,
