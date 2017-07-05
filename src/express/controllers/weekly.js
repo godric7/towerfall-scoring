@@ -7,38 +7,29 @@ import type { Game } from '../../types';
 */
 
 const { computeRatingsFromRankings } = require('../../helpers/elo.js');
+const { buildOneDayAgoDate, buildOneWeekAgoDate, isGameAfterDate } = require('../../helpers/date.js');
 const { createLeaderboardFromRatings } = require('./index.js');
 
-const weeklyCtrl = (req /*: Request */, res /*: Response */) => {
-  const store = req.app.get('store');
-  const state /*: State */ = store.getState();
-  const { games } = state;
+const dailyCtrl = buildController(buildOneDayAgoDate());
+const weeklyCtrl = buildController(buildOneWeekAgoDate());
 
-  const oneWeekAgo = buildOneWeekAgoDate();
+function buildController(date/*: Date */) {
+  return (req /*: Request */, res /*: Response */) => {
+    const store = req.app.get('store');
+    const state /*: State */ = store.getState();
+    const { games } = state;
 
-  const rankings = games
-    .filter(isGameAfterDate(oneWeekAgo))
-    .map((game) => game.rankings);
-  const ratings = computeRatingsFromRankings(rankings);
+    const rankings = games
+      .filter(isGameAfterDate(date))
+      .map((game) => game.rankings);
+    const ratings = computeRatingsFromRankings(rankings);
 
-  const scores = createLeaderboardFromRatings(ratings);
-  res.render('index.hbs', { scores });
-};
-
-function buildOneWeekAgoDate() {
-  const oneWeekAgo = new Date();
-  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-  return oneWeekAgo;
-}
-
-function isGameAfterDate(date /*: Date */) {
-  return (game/*: Game */) => {
-    return new Date(game.date) >= date;
-  }
+    const scores = createLeaderboardFromRatings(ratings);
+    res.render('index.hbs', { scores });
+  };
 }
 
 module.exports = {
-  buildOneWeekAgoDate,
-  isGameAfterDate,
+  dailyCtrl,
   weeklyCtrl,
 };
