@@ -7,11 +7,15 @@ import type { Game } from '../../types';
 */
 
 const { computeRatingsFromRankings } = require('../../helpers/elo.js');
-const { buildOneDayAgoDate, buildOneWeekAgoDate, isGameAfterDate } = require('../../helpers/date.js');
+const {
+  buildBeginningOfDayDate,
+  buildBeginningOfWeekDate,
+  isGameAfterDate
+} = require('../../helpers/date.js');
 const { createLeaderboardFromRatings } = require('./index.js');
 
-const dailyCtrl = buildController(buildOneDayAgoDate());
-const weeklyCtrl = buildController(buildOneWeekAgoDate());
+const dailyCtrl = buildController(buildBeginningOfDayDate());
+const weeklyCtrl = buildController(buildBeginningOfWeekDate());
 
 function buildController(date/*: Date */) {
   return (req /*: Request */, res /*: Response */) => {
