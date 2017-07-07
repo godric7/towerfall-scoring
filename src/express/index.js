@@ -10,7 +10,7 @@ const { gamesCtrl } = require('./controllers/games.js');
 const { indexCtrl } = require('./controllers/index.js');
 const { logsCtrl } = require('./controllers/logs.js');
 const { playerCtrl } = require('./controllers/player.js');
-const { weeklyCtrl } = require('./controllers/weekly.js');
+const { dailyCtrl, weeklyCtrl } = require('./controllers/weekly.js');
 
 
 const app = express();
@@ -39,6 +39,7 @@ app.all('/altboard', altLeaderBoardCtrl);
 app.all('/logs', logsCtrl);
 app.all('/games', gamesCtrl);
 app.all('/players/:player', playerCtrl);
+app.all('/daily', dailyCtrl);
 app.all('/weekly', weeklyCtrl);
 
 module.exports = {

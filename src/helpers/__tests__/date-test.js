@@ -1,13 +1,11 @@
 // @flow
 
-const { mockRankings } = require('../../../types/mocks.js');
-const { makeGameFromRankings } = require('../../../types');
+const { mockRankings } = require('../../types/mocks.js');
+const { makeGameFromRankings } = require('../../types');
 
-const {
-  isGameAfterDate
-} = require('../weekly.js');
+const { isGameAfterDate } = require('../date.js');
 
-describe('index-test.js', () => {
+describe('date-test.js', () => {
   describe('isGameAfterDate()', () => {
     it('returns true if the game is after the date', () => {
       const game = makeGameFromRankings(mockRankings);
