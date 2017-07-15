@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const readline = require('readline');
+const moment = require('moment');
 
 const { createStore } = require('./src/redux/store.js');
 const { registerGame } = require('./src/redux/actions.js');
@@ -24,6 +25,8 @@ const onRead = (callback /* (string|null) => void */) => {
 
 const store = createStore(writeFunc, {});
 store.dispatch(replayLogsThunk(onRead));
+
+moment.locale('fr');
 
 app.set('config', config);
 app.set('store', store);
