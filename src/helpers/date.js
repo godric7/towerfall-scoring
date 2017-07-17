@@ -1,28 +1,11 @@
-function buildOneDayAgoDate() {
-  const oneWeekAgo = new Date();
-  oneWeekAgo.setDate(oneWeekAgo.getDate() - 1);
-  return oneWeekAgo;
+const moment = require('moment');
+
+function buildBeginningOfDayDate(date /*: Date */ = new Date()) {
+  return moment(date).startOf('day').toDate();
 }
 
-function buildOneWeekAgoDate() {
-  const oneWeekAgo = new Date();
-  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-  return oneWeekAgo;
-}
-
-function buildBeginningOfDayDate() {
-  const buildBeginningOfDayDate = new Date();
-  buildBeginningOfDayDate.setHours(0, 0 ,0 ,0);
-  return buildBeginningOfDayDate;
-}
-
-function buildBeginningOfWeekDate() {
-  const buildBeginningOfWeekDate = new Date();
-  const day = buildBeginningOfWeekDate.getDay()
-  const diff = buildBeginningOfWeekDate.getDate() - day + (day == 0 ? -6 : 1);
-  buildBeginningOfWeekDate.setDate(buildBeginningOfWeekDate.getDate() - diff);
-  buildBeginningOfWeekDate.setHours(0, 0 ,0 ,0);
-  return buildBeginningOfWeekDate;
+function buildBeginningOfWeekDate(date /*: Date */ = new Date()) {
+  return moment(date).startOf('week').toDate();
 }
 
 function isGameAfterDate(date /*: Date */) {
@@ -35,7 +18,5 @@ function isGameAfterDate(date /*: Date */) {
 module.exports = {
   buildBeginningOfDayDate,
   buildBeginningOfWeekDate,
-  buildOneDayAgoDate,
-  buildOneWeekAgoDate,
   isGameAfterDate,
 };
