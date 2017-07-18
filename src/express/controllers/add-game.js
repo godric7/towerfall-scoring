@@ -17,7 +17,8 @@ const addGameCtrl = (req /*: Request */, res /*: Response */) => {
   const store = req.app.get('store');
   const state /*: State */ = store.getState();
 
-  let inputs /*: Array<GameInput> */ = [1,2,3,4]
+  const positions = [1,2,3,4];
+  let inputs /*: Array<GameInput> */ = positions
     .map((i) => ({ player: '', ranking: i }));
   const players = Object.keys(state.ratings)
     .sort();
@@ -35,7 +36,7 @@ const addGameCtrl = (req /*: Request */, res /*: Response */) => {
       return res.redirect('/');
     }
   }
-  res.render('add-game.hbs', { inputs, players });
+  res.render('add-game.hbs', { inputs, players, positions });
 };
 
 module.exports = {
