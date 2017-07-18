@@ -5,10 +5,8 @@
   import type { Game } from '../types';
 */
 
-function registerGame(
-  game /*: Game */
-) /*: Action */ {
-  return { type: 'REGISTER_GAME', game };
+function registerGame(game /*: Game */) /*: Action */ {
+  return { type: "REGISTER_GAME", game };
 }
 
 module.exports = {

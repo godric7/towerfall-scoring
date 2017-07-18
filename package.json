@@ -7,6 +7,7 @@
     "flow": "flow src",
     "flow:install": "flow-typed install",
     "lint": "eslint src",
+    "format": "eslint src --fix",
     "start": "node index.js",
     "test": "jest",
     "test:coverage": "jest --coverage --collectCoverageFrom=src/**",
@@ -26,9 +27,12 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",
+    "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-prettier": "^2.1.2",
     "flow-bin": "^0.47.0",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "prettier": "^1.5.3"
   }
 }
