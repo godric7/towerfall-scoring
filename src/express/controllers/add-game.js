@@ -1,7 +1,7 @@
 // @flow
 
-const { registerGame } = require('../../redux/actions.js');
-const { makeGameFromRankings } = require('../../types');
+const { registerGame } = require("../../redux/actions.js");
+const { makeGameFromRankings } = require("../../types");
 
 /*flow-include
 import type { Request, Response } from 'express';
@@ -16,35 +16,32 @@ export type GameInput = {|
 */
 
 const addGameCtrl = (req /*: Request */, res /*: Response */) => {
-  const config /*: Config */ = req.app.get('config');
-  const store = req.app.get('store');
+  const config /*: Config */ = req.app.get("config");
+  const store = req.app.get("store");
   const state /*: State */ = store.getState();
-
   const positions = [1,2,3,4];
-  let inputs /*: Array<GameInput> */ = positions
-    .map((position) => ({ 
-      player: '', 
-      ranking: position,
-    }));
-  const players = Object.keys(state.ratings)
-    .sort();
-  if (req.body && Array.isArray(req.body.inputs))
-    inputs = req.body.inputs;
+  
+  let inputs /*: Array<GameInput> */ = positions.map(i => ({
+    player: "",
+    ranking: i
+  }));
+  
+  if (req.body && Array.isArray(req.body.inputs)) inputs = req.body.inputs;
 
   if (req.body && req.body.password == config.PASSWORD) {
     const rankings = {};
-    inputs.forEach((input) => {
+    inputs.forEach(input => {
       rankings[input.player] = input.ranking;
     });
     const game = makeGameFromRankings(rankings);
     if (Object.keys(game.rankings).length >= 2) {
       store.dispatch(registerGame(game));
-      return res.redirect('/');
+      return res.redirect("/");
     }
   }
   res.render('add-game.hbs', { inputs, players, positions });
 };
 
 module.exports = {
-  addGameCtrl,
+  addGameCtrl
 };

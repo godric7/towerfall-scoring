@@ -1,22 +1,21 @@
-const moment = require('moment');
+const moment = require("moment");
 
 function buildBeginningOfDayDate(date /*: Date */ = new Date()) {
-  return moment(date).startOf('day').toDate();
+  return moment(date).startOf("day").toDate();
 }
 
 function buildBeginningOfWeekDate(date /*: Date */ = new Date()) {
-  return moment(date).startOf('week').toDate();
+  return moment(date).startOf("week").toDate();
 }
 
 function isGameAfterDate(date /*: Date */) {
-  return (game/*: Game */) => {
+  return (game /*: Game */) => {
     return new Date(game.date) >= date;
-  }
+  };
 }
-
 
 module.exports = {
   buildBeginningOfDayDate,
   buildBeginningOfWeekDate,
-  isGameAfterDate,
+  isGameAfterDate
 };

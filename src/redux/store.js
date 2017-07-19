@@ -1,19 +1,12 @@
 // @flow
 
-const {
-  createStore: reduxCreateStore,
-  applyMiddleware,
-} = require('redux');
+const { createStore: reduxCreateStore, applyMiddleware } = require("redux");
 
-const {
-  getUpdatedRatingFromRankings,
-} = require('../helpers/elo.js');
+const { getUpdatedRatingFromRankings } = require("../helpers/elo.js");
 
-const {
-  replayMiddleware,
-} = require('../lib/redux-replay.js');
+const { replayMiddleware } = require("../lib/redux-replay.js");
 
-const thunk = require('redux-thunk').default;
+const thunk = require("redux-thunk").default;
 
 /*flow-include
   import type { ELORating } from '../lib/elo.js';
@@ -38,7 +31,7 @@ const thunk = require('redux-thunk').default;
 
 const defaultState /* State */ = {
   games: [],
-  ratings: {},
+  ratings: {}
 };
 
 function reducer(
@@ -46,10 +39,11 @@ function reducer(
   action /*: Action */
 ) /*: State */ {
   switch (action.type) {
-    case 'REGISTER_GAME': {
-      const games = state.games.concat([ action.game ]);
+    case "REGISTER_GAME": {
+      const games = state.games.concat([action.game]);
       const ratings = getUpdatedRatingFromRankings(
-        state.ratings, action.game.rankings
+        state.ratings,
+        action.game.rankings
       );
       return { games, ratings };
     }
@@ -64,13 +58,13 @@ function createStore(
   extraArgs /*: ExtraArgs */
 ) /*: Store */ {
   const thunkMiddleware = thunk.withExtraArgument(extraArgs);
-  return reduxCreateStore(reducer, applyMiddleware(
-    replayMiddleware(writeFunc),
-    thunkMiddleware
-  ));
+  return reduxCreateStore(
+    reducer,
+    applyMiddleware(replayMiddleware(writeFunc), thunkMiddleware)
+  );
 }
 
 module.exports = {
   reducer,
-  createStore,
+  createStore
 };

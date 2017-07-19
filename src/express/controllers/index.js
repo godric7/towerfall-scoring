@@ -14,27 +14,28 @@ type LeaderboardEntry = {|
 */
 
 const indexCtrl = (req /*: Request */, res /*: Response */) => {
-  const store = req.app.get('store');
+  const store = req.app.get("store");
   const state /*: State */ = store.getState();
   const { ratings } = state;
   const scores = createLeaderboardFromRatings(ratings);
-  res.render('index.hbs', { scores });
+  res.render("index.hbs", { scores });
 };
 
-
-function createLeaderboardFromRatings(ratings /*: { [Player]: ELORating } */)/*: Array<LeaderboardEntry> */ {
+function createLeaderboardFromRatings(
+  ratings /*: { [Player]: ELORating } */
+) /*: Array<LeaderboardEntry> */ {
   const players = Object.keys(ratings);
   return players
-    .map((player) => ({ player, rating: ratings[player] }))
+    .map(player => ({ player, rating: ratings[player] }))
     .sort((a, b) => b.rating - a.rating)
     .map((a, index) => ({
       player: a.player,
       index: index + 1,
-      rating: Math.round(a.rating / 100),
+      rating: Math.round(a.rating / 100)
     }));
 }
 
 module.exports = {
   createLeaderboardFromRatings,
-  indexCtrl,
+  indexCtrl
 };
