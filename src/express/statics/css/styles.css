@@ -100,7 +100,8 @@ a {
   text-decoration: underline;
 }
 
-input, button {
+input, 
+button {
   font-size: 1.5em;
   text-transform: inherit;
   font-family: inherit;
@@ -123,6 +124,27 @@ input[type=submit], button[type=submit] {
   background-repeat: no-repeat;
   padding: 25px 40px;
   border: none;
+}
+
+select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1.5em;
+  text-transform: inherit;
+  font-family: inherit;
+  padding: 0.5em;
+  color: inherit;
+  display: inline-block;
+  width: 90%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  border-bottom: 2px solid #757575;
+}
+
+option {
+  background: rgba(0,0,0,0.8);
 }
 
 .playerName { font-size: 2em; }

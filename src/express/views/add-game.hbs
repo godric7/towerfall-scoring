@@ -9,11 +9,10 @@
       >
         <select
           name="inputs[{{@index}}][ranking]"
-          value="{{ranking}}"
           tabindex="-1"
         >
           {{#each @root.positions}}
-            <option value="{{this}}">{{this}}</option>
+            <option value="{{this}}" {{#eq this ../ranking}} selected{{/eq}}>{{this}}</option>
           {{/each}}
         </select>
       </td>

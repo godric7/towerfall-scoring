@@ -2,6 +2,7 @@
 
 const express = require('express');
 const expressHandlerbars  = require('express-handlebars');
+const handlerbarsHelpers = require('handlebars-helpers');
 const bodyParser = require('body-parser');
 
 const { addGameCtrl } = require('./controllers/add-game.js');
@@ -24,6 +25,7 @@ const engine = expressHandlerbars.create({
   layoutsDir: paths.views,
   defaultLayout: 'main.hbs',
   extname: '.hbs',
+  helpers: handlerbarsHelpers()
 });
 app.set('views', paths.views);
 app.engine('.hbs', engine.engine);

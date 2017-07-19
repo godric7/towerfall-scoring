@@ -19,6 +19,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
+    "handlebars-helpers": "^0.9.3",
     "moment": "^2.18.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
