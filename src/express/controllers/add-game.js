@@ -19,13 +19,13 @@ const addGameCtrl = (req /*: Request */, res /*: Response */) => {
   const config /*: Config */ = req.app.get("config");
   const store = req.app.get("store");
   const state /*: State */ = store.getState();
-  const positions = [1,2,3,4];
-  
+  const positions = [1, 2, 3, 4];
+
   let inputs /*: Array<GameInput> */ = positions.map(i => ({
     player: "",
     ranking: i
   }));
-  
+
   if (req.body && Array.isArray(req.body.inputs)) inputs = req.body.inputs;
 
   if (req.body && req.body.password == config.PASSWORD) {
@@ -39,7 +39,7 @@ const addGameCtrl = (req /*: Request */, res /*: Response */) => {
       return res.redirect("/");
     }
   }
-  res.render('add-game.hbs', { inputs, players, positions });
+  res.render("add-game.hbs", { inputs, players, positions });
 };
 
 module.exports = {
