@@ -3,10 +3,14 @@
     class="textCenter textBig"
     style="width: 80%; margin: auto;"
   >
+    <datalist id="playerList">
+      {{#each players}}
+      <option value="{{this}}" />
+      {{/each}}
+    </datalist>
     {{#each inputs}}
     <tr>
-      <td
-      >
+      <td>
         <select
           name="inputs[{{@index}}][ranking]"
           tabindex="-1"
@@ -16,28 +20,20 @@
           {{/each}}
         </select>
       </td>
-      <td
-      >
+      <td>
         <input
           name="inputs[{{@index}}][player]"
           placeholder="PLAYER NAME"
           value="{{player}}"
           list="playerList"
         />
-        <datalist id="playerList">
-          {{#each ../players}}
-          <option value="{{this}}" />
-          {{/each}}
-        </datalist>
       </td>
     </tr>
     {{/each}}
     <tr>
       <td>
       </td>
-      <td
-        style="padding: 32px 0px"
-      >
+      <td>
         <input
           type="password"
           name="password"
