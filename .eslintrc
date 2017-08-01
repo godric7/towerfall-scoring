@@ -1,14 +1,22 @@
 {
   "env": {
     "jest/globals": true,
-    "node": true
+    "es6": true,
   },
   "extends": [
-    "plugin:flowtype/recommended",
-    "plugin:jest/recommended",
-    "prettier"
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react",
+    "plugin:jest/recommended"
   ],
   "plugins": ["flowtype", "jest", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
     "prettier/prettier": "error"
   }

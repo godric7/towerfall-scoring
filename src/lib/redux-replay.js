@@ -1,7 +1,5 @@
 // @flow
 
-const readline = require("readline");
-
 /*flow-include
   import type { Action, Dispatch, GetState, Next, Store, Middleware } from 'redux';
   type Thunk = (dispatch: Dispatch, getState: GetState, extraArgs: any) => any;
