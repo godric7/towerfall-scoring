@@ -5,9 +5,10 @@ const React = require("react");
 const ReactDOM = require("react-dom");
 const { createStore } = require("./redux/store");
 const { Provider } = require("react-redux");
-const Root = require("./react/root.jsx");
+
 const Games = require("./react/games.jsx");
 const AllTime = require("./react/all-time.jsx");
+const Player = require("./react/player.jsx");
 
 const {
   BrowserRouter,
@@ -842,6 +843,8 @@ ReactDOM.render(
         <br />
         <Route exact path="/" component={AllTime} />
         <Route exact path="/games" component={Games} />
+        <Route exact path="/players/:player" component={Player} />
+
       </div>
     </Provider>
   </HashRouter>,
