@@ -1,11 +1,8 @@
 // @flow
 
 const { createStore: reduxCreateStore, applyMiddleware } = require("redux");
-
 const { getUpdatedRatingFromRankings } = require("../helpers/elo.js");
-
 const { replayMiddleware } = require("../lib/redux-replay.js");
-
 const thunk = require("redux-thunk").default;
 
 /*flow-include

@@ -6,7 +6,7 @@ const babelConfig = {
 };
 
 const config = {
-  entry: "./src/main.js",
+  entry: "./src/main.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
@@ -30,7 +30,8 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/statics/index.html"
+      template: "src/statics/index.html",
+      inject: true
     })
   ]
 };
