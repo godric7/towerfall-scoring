@@ -2,6 +2,7 @@ const React = require("react");
 const PropTypes = require("prop-types");
 
 const { connect } = require("react-redux");
+const { Link } = require("react-router-dom");
 
 class Games extends React.Component {
   render() {
@@ -10,21 +11,22 @@ class Games extends React.Component {
       <table>
         <tbody>
           <tr>
-            <td colSpan="4"></td>
+            <td colSpan="4" />
           </tr>
-          { games.map((game) => (
-          <tr key={game.date}>
-            <td className="textLeft"></td>
-            { Object.keys(game.rankings).map((key) => (
-            <td key={key} className="textLeft">{ game.rankings[key] }:
-              <a href="/players/{{rank.player}}">{ key }</a>
-            </td>
-            )) }
-          </tr>
-        )) }
+          {games.map(game =>
+            <tr key={game.date}>
+              <td className="textLeft" />
+              {Object.keys(game.rankings).map(key =>
+                <td key={key} className="textLeft">
+                  {game.rankings[key]}:
+                  <Link to={`/players/${key}`}>{key}</Link>
+                </td>
+              )}
+            </tr>
+          )}
         </tbody>
       </table>
-    )
+    );
   }
 }
 
