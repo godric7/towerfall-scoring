@@ -102,9 +102,9 @@ class Players extends React.Component {
             {results.map((result, index) =>
               <tr key={result.opponent}>
                 <td>
-                  <a href={`/players/${result.opponent}`}>
+                  <Link to={`/players/${result.opponent}`}>
                     {result.opponent}
-                  </a>
+                  </Link>
                 </td>
                 <td>
                   <span>
