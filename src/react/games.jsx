@@ -15,6 +15,9 @@ class Games extends React.Component {
           </tr>
           {games.map(game =>
             <tr key={game.date}>
+              <td className="textLeft">
+                {game.date}
+              </td>
               <td className="textLeft" />
               {Object.keys(game.rankings).map(key =>
                 <td key={key} className="textLeft">

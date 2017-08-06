@@ -9,6 +9,7 @@ const { Provider } = require("react-redux");
 const Games = require("./react/games.jsx");
 const AllTime = require("./react/all-time.jsx");
 const Player = require("./react/player.jsx");
+const Weekly = require("./react/weekly.jsx");
 
 const {
   BrowserRouter,
@@ -17,6 +18,11 @@ const {
   Link,
   Switch
 } = require("react-router-dom");
+
+const {
+  buildBeginningOfDayDate,
+  buildBeginningOfWeekDate,
+} = require("./helpers/date.js");
 
 const logs = [
 {"type":"REGISTER_GAME","game":{"rankings":{"GODRIC":1,"MRJMAD":2,"IRIS":3,"LOUIS":4},"date":"2017-06-06T11:38:35.178Z"}},
@@ -844,7 +850,16 @@ ReactDOM.render(
         <Route exact path="/" component={AllTime} />
         <Route exact path="/games" component={Games} />
         <Route exact path="/players/:player" component={Player} />
-
+        <Route
+          exact
+          path="/weekly"
+          render={()=> <Weekly date={buildBeginningOfWeekDate()} /> }
+        />
+        <Route
+          exact
+          path="/daily"
+          render={()=> <Weekly date={buildBeginningOfDayDate()} /> }
+        />
       </div>
     </Provider>
   </HashRouter>,
